@@ -1,4 +1,4 @@
-# Redrawing_picture_black_and_white
+# Redrawing picture black and white
 User can upload a pic and it redoes it in black and white
 
 You need to have downloaded cv2 and PyQt5 for this application to work.
