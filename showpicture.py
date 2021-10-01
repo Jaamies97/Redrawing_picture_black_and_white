@@ -13,7 +13,7 @@ class picturewindow(QWidget):
         dimension = (int(img.shape[1]), int(img.shape[0]))
 
         if int(img.shape[1]) >= 1920:
-            while((int(img.shape[1]) >= 1920) or  (int(img.shape[0]) >= 1080*0.6)):
+            while (int(img.shape[1]) >= 1920) or  (int(img.shape[0]) >= 1080 * 0.6):
                 width = int(img.shape[1] * 0.9)
                 height = int(img.shape[0] * 0.9)
                 dimension = (width, height)
