@@ -1,11 +1,13 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QFileDialog, QPushButton, QBoxLayout, QGroupBox, QGridLayout
-from PyQt5.QtCore import QDir
+from PyQt5.QtWidgets import QApplication, QWidget, QFileDialog, QPushButton, QGroupBox, QGridLayout
+
+from showpicture import picturewindow
 
 
 class Window(QWidget):
     def __init__(self):
         super().__init__()
+        self.buttonLayout = QGroupBox("Push button to select a file")
         self.resize(500, 100)
         self.downloadButton()
         self.setWindowTitle("Redrawing the picture")
@@ -13,17 +15,19 @@ class Window(QWidget):
         layout.addWidget(self.buttonLayout)
         self.setLayout(layout)
 
-
     def downloadButton(self):
-        self.buttonLayout = QGroupBox("Push button to select a file")
-        settingDownloadB = QPushButton('Open a file',self)
-        settingDownloadB.clicked.connect(self.openSelection)
+        settingdownloadb = QPushButton('Open a file', self)
+        settingdownloadb.clicked.connect(self.openselection)
         layout = QGridLayout()
-        layout.addWidget(settingDownloadB)
+        layout.addWidget(settingdownloadb)
         self.buttonLayout.setLayout(layout)
-        settingDownloadB
-    def openSelection(self):
-        pass
+
+    def openselection(self):
+        options = QFileDialog.Options()
+        fileName, _ = QFileDialog.getOpenFileName(self, "Select a file", "D:/",
+                                                  "Accepted files (*.jpg *.png)", options=options)
+
+        self.picture_window = picturewindow(fileName)
 
 
 def main():
