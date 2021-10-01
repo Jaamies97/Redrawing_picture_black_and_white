@@ -20,7 +20,7 @@ class sketchwindow(QWidget):
                 img = cv2.resize(img, dimension)
 
         img = cv2.resize(img, dimension)
-        grey = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+        grey = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
         grey_invert = cv2.bitwise_not(grey)
         blurred_img = cv2.GaussianBlur(grey_invert, (111, 111), 0)
@@ -28,10 +28,5 @@ class sketchwindow(QWidget):
         grey_invert_blur = cv2.bitwise_not(blurred_img)
         sketched_img = cv2.divide(grey, grey_invert_blur, scale=256.0)
 
-        if (dimension[0]) > (dimension[1] * 2):
-            all_added = cv2.vconcat(filenameasstr, [img, sketched_img])
-        else:
-            all_added = cv2.hconcat(filenameasstr, [img, sketched_img])
-
-        cv2.imshow(filenameasstr, all_added)
+        cv2.imshow(filenameasstr, sketched_img)
         cv2.waitKey(0)

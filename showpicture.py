@@ -21,13 +21,13 @@ class picturewindow(QWidget):
 
         img = cv2.resize(img, dimension)
         grey = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
-        grey_3_channel = cv2.cvtColor(grey, cv2.COLOR_GRAY2BGR)
+        grey_invert = cv2.cvtColor(grey, cv2.COLOR_GRAY2BGR)
 
-        numpy_vertical = numpy.vstack((img, grey_3_channel))
-        numpy_horizontal = numpy.hstack((img, grey_3_channel))
+        numpy_vertical = numpy.vstack((img, grey_invert))
+        numpy_horizontal = numpy.hstack((img, grey_invert))
 
-        numpy_vertical_concat = numpy.concatenate((img, grey_3_channel), axis=0)
-        numpy_horizontal_concat = numpy.concatenate((img, grey_3_channel), axis=1)
+        numpy_vertical_concat = numpy.concatenate((img, grey_invert), axis=0)
+        numpy_horizontal_concat = numpy.concatenate((img, grey_invert), axis=1)
         if (dimension[0]) > (dimension[1]*2):
             cv2.imshow(filenameasstr, numpy_vertical)
             cv2.imshow(filenameasstr, numpy_vertical_concat)
