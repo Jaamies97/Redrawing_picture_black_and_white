@@ -12,8 +12,8 @@ class picturewindow(QWidget):
 
         dimension = (int(img.shape[1]), int(img.shape[0]))
 
-        if int(img.shape[1]) >= 1920:
-            while (int(img.shape[1]) >= 1920) or  (int(img.shape[0]) >= 1080 * 0.6):
+        if int(img.shape[1]) >= 1920 * 0.45:
+            while (int(img.shape[1]) >= 1920 * 0.4) and (int(img.shape[0]) >= 1080 * 0.4):
                 width = int(img.shape[1] * 0.9)
                 height = int(img.shape[0] * 0.9)
                 dimension = (width, height)
@@ -28,7 +28,7 @@ class picturewindow(QWidget):
 
         numpy_vertical_concat = numpy.concatenate((img, grey_invert), axis=0)
         numpy_horizontal_concat = numpy.concatenate((img, grey_invert), axis=1)
-        if (dimension[0]) > (dimension[1]*2):
+        if int(dimension[0]) > int(dimension[1]*2):
             cv2.imshow(filenameasstr, numpy_vertical)
             cv2.imshow(filenameasstr, numpy_vertical_concat)
         else:
