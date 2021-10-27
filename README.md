@@ -1,7 +1,7 @@
 # Redrawing picture black and white
 User can upload a pic and my program redoes the picture in black and white
 
-You need to have downloaded cv2 and PyQt5 for this application to work.
+You need to have downloaded numpy, cv2, and PyQt5 for this application to work.
 It showns some errors but runs correctly enough.
 It still crashes if you exit during photoselection.
 Otherwise it does black and white image perfectly and displays both, the original and edited, pictures on screen.
